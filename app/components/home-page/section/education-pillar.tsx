@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Users, BookOpen, Award, Link2, GraduationCap } from 'lucide-react';
 import img061 from "@/images/home-page/Section-06-1.png"
@@ -229,3 +229,80 @@ function PhotoCard({ image, alt, heightRatio = 1.2, title, subtitle, setShowModa
 
 // Named export để tương thích với import hiện tại
 export { EducationPillarsSectionComponent as EducationPillarsSection };
+
+
+
+
+// ==================== EDUCATION PILLAR MODAL ====================
+interface EducationPillarModalProps {
+  image: string;
+  alt: string;
+  title: string;
+  subtitle: string;
+  onClose: () => void;
+}
+
+export function EducationPillarModal({ image, alt, title, subtitle, onClose }: EducationPillarModalProps) {
+  // Handle Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [onClose]);
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="relative w-full max-w-4xl bg-white rounded-lg overflow-hidden"
+        initial={{ scale: 0.9, y: 50 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.9, y: 50 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+          aria-label="Close modal"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        {/* Image - Top Half */}
+        <div className="relative h-80 md:h-96 overflow-hidden">
+          <img
+            src={image}
+            alt={alt}
+            className="w-full h-full object-cover"
+          />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+        </div>
+
+        {/* Content - Bottom Half */}
+        <div className="p-8 md:p-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1a5336] mb-4">
+            {title}
+          </h2>
+          
+          <p className="text-lg md:text-xl text-[#212121] leading-relaxed">
+            {subtitle}
+          </p>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}

@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Search, Menu, X } from 'lucide-react';
+import { Link, useNavigate } from 'react-router';
 import logoImage from '@/images/base/logo-head.png';
 import { useState, useEffect } from 'react';
 
@@ -7,13 +8,21 @@ interface StickyHeaderProps {
   scrolled: boolean;
   onMenuClick: () => void;
   onMenuClose: () => void;
-  onLogoClick: () => void;
-  onEnquireClick: () => void;
   menuOpen: boolean;
 }
 
-export default function StickyHeader({ scrolled, onMenuClick, onMenuClose, onLogoClick, onEnquireClick, menuOpen }: StickyHeaderProps) {
+export default function StickyHeader({ scrolled, onMenuClick, onMenuClose, menuOpen }: StickyHeaderProps) {
   const [isVisible, setIsVisible] = useState(true);
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate('/');
+  };
+
+  const handleEnquireClick = () => {
+    // Handle enquire/apply now action
+    navigate('/admissions/apply-now')
+  };
 
   useEffect(() => {
     const controlHeaderVisibility = () => {
@@ -50,7 +59,7 @@ export default function StickyHeader({ scrolled, onMenuClick, onMenuClose, onLog
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-70 transition-all duration-300 mb-2${
-        isTransparent ? 'py-2' : 'py-1 shadow-sm'
+        isTransparent ? 'py-2' : 'py-1'
       } ${menuOpen ? 'shadow-none' : ''}`}
       style={{ minHeight: '66px' }}
       initial={{ y: 0 }}
@@ -68,8 +77,8 @@ export default function StickyHeader({ scrolled, onMenuClick, onMenuClose, onLog
       <div className="h-full max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between gap-8  py-4">
         {/* Logo - Left */}
         <motion.div
-          onClick={onLogoClick}
-          className={`flex-shrink-0 cursor-pointer ${
+          onClick={handleLogoClick}
+          className={`shrink-0 cursor-pointer ${
             isTransparent ? 'focus:ring-offset-[#1a5336]' : menuOpen ? 'focus:ring-offset-[#1a5336]' : 'focus:ring-offset-white'
           }`}
           whileHover={{ scale: 1.02 }}
@@ -87,7 +96,7 @@ export default function StickyHeader({ scrolled, onMenuClick, onMenuClose, onLog
         <div className="flex items-center gap-3">
           {/* Primary CTA Button - Apply Now */}
           <motion.button
-            onClick={onEnquireClick}
+            onClick={handleEnquireClick}
             className={`rounded-full flex items-center justify-center px-6 h-12 bg-[#FABA1E] text-[#1a5336] font-bold uppercase text-sm tracking-wider hover:bg-[#e5a812] transition-colors focus:outline-none focus:ring-2 focus:ring-[#FABA1E] focus:ring-offset-2 ${
               isTransparent ? 'focus:ring-offset-[#1a5336]' : menuOpen ? 'focus:ring-offset-[#1a5336]' : 'focus:ring-offset-white'
             }`}

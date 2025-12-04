@@ -28,9 +28,9 @@ export const moreLinks: MoreLink[] = [
   // { label: 'Parents', path: '/parents' },
   { label: 'Parent Essentials', path: '/parents/essentials' },
   { label: 'News & Events', path: '/news-events' },
-  { label: 'Academic Results', path: '/academic-results' },
+  // { label: 'Academic Results', path: '/academic-results' },
   { label: 'Apply Now', path: '/admissions/apply-now' },
-  { label: 'Q & A', path: '/admissions/apply-now' }
+  // { label: 'Q & A', path: '/admissions/apply-now' }
 ]
 
 // New sitemap based on concept slide
@@ -93,7 +93,7 @@ export const siteNavigation: NavParent[] = [
   {
     id: 'holistic-education',
     label: 'Holistic Education',
-    path: '/academics/overview',
+    path: '/academics',
     description: 'Comprehensive bilingual learning programs',
     children: [
       {
@@ -105,19 +105,19 @@ export const siteNavigation: NavParent[] = [
       {
         id: 'holistic-primary',
         label: 'LHBS Primary School',
-        path: '/academics/primary',
+        path: '/primary-school',
         description: 'Grades 1-5: Building strong foundations'
       },
       {
         id: 'holistic-lower',
         label: 'LHBS Secondary School',
-        path: '/academics/lower-secondary',
+        path: '/secondary-school',
         description: 'Grades 6-9: Advanced concepts and critical thinking'
       },
       {
         id: 'holistic-upper',
         label: 'LHBS High School',
-        path: '/academics/upper-secondary',
+        path: '/high-school',
         description: 'Grades 10-12: University preparation and global readiness'
       },
       {
@@ -141,19 +141,19 @@ export const siteNavigation: NavParent[] = [
   {
     id: 'paths-to-passion',
     label: 'Paths to Passion',
-    path: '/student-life/outstanding-experiences',
+    path: '/paths-to-passion',
     description: 'Beyond the classroom experiences',
     children: [
       {
         id: 'passion-clubs',
         label: 'Extracurricular Activities',
-        path: '/student-life/clubs-activities',
+        path: '/paths-to-passion/clubs-activities',
         description: 'Diverse extracurricular programs for every interest'
       }
     ],
-    cta: {
-      text: 'Explore Outstanding Experiences',
-      path: '/student-life/outstanding-experiences'
-    }
+    // cta: {
+    //   text: 'Explore Outstanding Experiences',
+    //   path: '/student-life/outstanding-experiences'
+    // }
   }
 ]

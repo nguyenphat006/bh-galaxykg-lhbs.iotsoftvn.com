@@ -1,12 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { Route } from './+types/home'
-import { CoreStrengthModal, CoreStrengthsSection, FoundingMessageSection, NewsEventsSection, TestimonialsSection, VideoHero, CollegeAcceptancesSection } from '@/components/home-page'
-import Footer from '@/components/layouts/Footer'
+import { EducationPillarsSection, CoreStrengthModal, CoreStrengthsSection, FoundingMessageSection, NewsEventsSection, TestimonialsSection, VideoHero, CollegeAcceptancesSection, EducationPillarModal } from '@/components/home-page'
 import ScrollToTop from '@/components/ui/components/ScrollToTop';
-import StickyHeader from '@/components/layouts/StickyHeader';
-import { FullScreenMenu } from '@/components/ui/components/FullScreenMenu';
 import { SolidEducationSection } from '@/components/home-page/section/solid-education';
-import EducationPillarsSectionComponent from '@/components/home-page/section/education-pillar';
 import { LHBSLifeVideoSection } from '@/components/home-page/section/life-video';
 export function meta({}: Route.MetaArgs) {
   return [{ title: 'LHBS - Trường Song Ngữ Lạc Hồng' }, { name: 'description', content: 'Chào mừng tới Trường Song Ngữ Lạc Hồng - LHBS' }]
@@ -15,46 +11,22 @@ export function meta({}: Route.MetaArgs) {
 export default function Home({onNavigate}: {onNavigate: (path: string) => void}) {
   const [showEducationModal, setShowEducationModal] = useState<{ image: string; alt: string; title?: string; subtitle?: string } | null>(null);
   const [showCoreStrengthModal, setShowCoreStrengthModal] = useState<{ title: string; description: string; points: string[]; image: string; alt: string } | null>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [currentPath, setCurrentPath] = useState('/');
-  
-  // Handle scroll to update header background
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setScrolled(scrollPosition > 50);
-    };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  const handleNavigate = (path: string) => {
-    setCurrentPath(path);
-    setMenuOpen(false);
-  };
-  return(
+    return(
     <>
-      <StickyHeader
-        scrolled={scrolled}
-        onMenuClick={() => setMenuOpen(true)}
-        onMenuClose={() => setMenuOpen(false)}
-        onLogoClick={() => handleNavigate('/')}
-        onEnquireClick={() => handleNavigate('/admissions/apply-now')}
-        menuOpen={menuOpen}
-      />
-       <FullScreenMenu
-        isOpen={menuOpen}
-        onClose={() => setMenuOpen(false)}
-        onNavigate={handleNavigate}
-        currentPath={currentPath}
-      />
-
+    
       <VideoHero onNavigate={onNavigate} />
-
       <SolidEducationSection onNavigate={onNavigate} />
-      <EducationPillarsSectionComponent/>
+      <EducationPillarsSection showModal={showEducationModal} setShowModal={setShowEducationModal}/>
+      {showEducationModal && (
+        <EducationPillarModal 
+          image={showEducationModal.image}
+          alt={showEducationModal.alt}
+          title={showEducationModal.title || ''}
+          subtitle={showEducationModal.subtitle || ''}
+          onClose={() => setShowEducationModal(null)}
+        />
+      )}
       <CollegeAcceptancesSection onNavigate={onNavigate} />
       {/* Section xxx: Founding Message */}
       <FoundingMessageSection onNavigate={onNavigate} />
@@ -74,7 +46,6 @@ export default function Home({onNavigate}: {onNavigate: (path: string) => void})
       <TestimonialsSection />
       <LHBSLifeVideoSection/>
       <NewsEventsSection onNavigate={onNavigate} />
-      <Footer onNavigate={onNavigate}/>
       <ScrollToTop/>
     </>
   )

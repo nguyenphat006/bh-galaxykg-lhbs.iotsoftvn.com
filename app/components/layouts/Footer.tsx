@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { Link } from 'react-router';
 import logoImage from '@/images/base/logo-head.png';
 
 export default function Footer({ onNavigate }: { onNavigate: (path: string) => void }) {
@@ -20,9 +21,9 @@ export default function Footer({ onNavigate }: { onNavigate: (path: string) => v
   
   const programLinks = [
     { label: 'Early Years (Galaxy KG)', url: '/academics/kindergarten' },
-    { label: 'Primary School', url: '/academics/primary' },
-    { label: 'Middle School', url: '/academics/lower-secondary' },
-    { label: 'High School', url: '/academics/upper-secondary' }
+    { label: 'Primary School', url: '/primary-school' },
+    { label: 'Middle School', url: '/secondary-school' },
+    { label: 'High School', url: '/high-school' }
   ];
   
   const socialCopy = "Follow us on social media to stay connected with the latest news, events, and achievements from our school community.";

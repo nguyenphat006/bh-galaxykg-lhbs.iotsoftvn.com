@@ -93,6 +93,18 @@ body {
   }
 }
 
+button, 
+[data-testid*="button"],
+.button, a {
+  border-radius: 9999px;
+}
+
+button.rounded-lg,
+[data-testid*="button"].rounded-lg,
+.button.rounded-lg {
+  border-radius: 0.5rem !important;
+}
+
 @theme inline {
   --radius-sm:
     calc(var(--radius) - 4px);
@@ -337,3 +349,4 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #c1c1c1 #f1f1f1;
 }
+
