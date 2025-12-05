@@ -40,7 +40,7 @@ export function TestimonialQuoteSection({ onNavigate }: TestimonialQuoteSectionP
   return (
     <motion.section
       ref={ref}
-      className="py-14 overflow-hidden relative"
+      className="bg-[#F5F5F5] py-14 overflow-hidden relative"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.8 }}

@@ -10,6 +10,8 @@ import { CollegeAcceptancesSection } from './section/college-acceptances'
 import TheNumbers from './section/the-numbers'
 import EducationLevel from './section/education-level'
 import LetsBeginCTA from './section/lets-begin'
+import TypicalDaySection from './section/typical-day'
+import AcademicSection from './section/academic'
 export { 
   VideoHero, 
   HeroCarousel, 
@@ -24,5 +26,7 @@ export {
   TestimonialQuoteSection,
   TheNumbers,
   EducationLevel,
-  LetsBeginCTA
+  LetsBeginCTA,
+  TypicalDaySection,
+  AcademicSection
 }

@@ -2,7 +2,7 @@ import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { ImQuotesRight } from "react-icons/im";
 import bgAcademicBilingual from '@/images/home-page/section-03-bg.png'
-import founderImage from '@/images/home-page/section-03.png';
+import founderImage from '@/images/home-page/Section-Nutrion.png';
 
 
 
@@ -15,7 +15,7 @@ export default function FoundingMessageSection({ onNavigate }: { onNavigate: (pa
     <motion.section
       ref={ref}
       data-section="founding-message"
-      className="h-screen mx-auto bg-[#1a5336] flex align-center justify-center relative"
+      className="h-screen mx-auto bg-[#00602F] flex align-center justify-center relative"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
     >
@@ -54,36 +54,22 @@ export default function FoundingMessageSection({ onNavigate }: { onNavigate: (pa
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           {/* Decorative quote mark */}
-          <div className="text-[#E5A812] text-xl md:text-7xl mb-4 leading-none">
-            <ImQuotesRight/>
+          <div className="text-[#E5A812] font-medium text-base md:text-xl mb-4 leading-none">
+            NUTRITION POLACY
           </div>
           
           {/* Title */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-[#fffae9] mb-6">
+          <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl text-[#fffae9] mb-6">
             <span className="block whitespace-nowrap">
-              Vietnamese 
-                Identity
+           Nutrition is the foundation 
             </span>
-            Global Vision 
+            of health for students
           </h2>
           
           {/* Body copy */}
           <p className="font-medium text-base md:text-xl text-[#fffae9]/90 mb-8 leading-relaxed">
-            LHBS is committed to creating a humanistic learning environment that nurtures and educates young generations to appreciate Vietnamese heritage and 
-             {' '}
- identity 
- while embracing global knowledge, skills, and citizenship—contributing positively to themselves, their communities, and society.
+          LHBS is committed to creating a humanistic learning environment that nurtures and educates young generations to appreciate.
           </p>
-          
-          {/* Attribution */}
-          <div className="mb-8">
-            <p className=" text-sm md:text-xl text-[#fffae9] font-semibold mb-1">
-              The late People's Teacher, Dr. Do Huu Tai
-            </p>
-            <p className=" text-xs md:text-sm text-[#fffae9]/70">
-              Founder of Lac Hong Bilingual Primary - Secondary - High School
-            </p>
-          </div>
           
           {/* CTA Button */}
           <div>

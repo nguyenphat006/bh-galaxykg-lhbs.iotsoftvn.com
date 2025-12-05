@@ -50,7 +50,7 @@ export default function NewsEventsSection({ onNavigate }: { onNavigate: (path: s
   return (
     <motion.section
       ref={ref}
-      className="py-24 max-w-[1640px] mx-auto relative"
+      className="bg-[#F5F5F5] py-24 mx-auto relative"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.8 }}
@@ -65,7 +65,7 @@ export default function NewsEventsSection({ onNavigate }: { onNavigate: (path: s
       />
       
       {/* Content with relative z-index */}
-      <div className="relative z-10">
+      <div className="relative z-10 max-w-[1640px] mx-auto">
       {/* Header Row */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
         {/* Left: Title & Subtitle */}
@@ -137,7 +137,7 @@ function N_Card({ image, imageAlt, tag, date, title, excerpt, link, onNavigate }
 
   return (
     <div 
-      className="bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 cursor-pointer group h-full flex flex-col"
+      className="bg-white overflow-hidden hover:shadow-sm transition-shadow duration-300 cursor-pointer group h-full flex flex-col rounded-xl"
       onClick={handleClick}
     >
       {/* Cover Image */}
@@ -150,7 +150,7 @@ function N_Card({ image, imageAlt, tag, date, title, excerpt, link, onNavigate }
         
         {/* Optional Tag Pill */}
         {tag && (
-          <div className="absolute bottom-0 left-0 bg-[#227D46] px-4 py-1">
+          <div className="absolute bottom-0 left-0 bg-[#227D46] px-4 py-1 tracking-wider">
             <span className=" text-xs text-white font-medium">
               {tag}
             </span>
