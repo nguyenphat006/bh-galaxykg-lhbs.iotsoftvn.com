@@ -52,7 +52,7 @@ export default function HeroCarousel({ onNavigate }: HeroProps) {
   };
 
   return (
-    <section className="relative w-full h-screen min-h-[600px] flex items-end overflow-hidden">
+    <section className="relative w-full h-screen min-h-[600px] flex items-center overflow-hidden">
       {/* Background Image with smooth transition */}
       <div className="absolute inset-0 z-0">
         {backgroundImages.map((image, index) => (
@@ -111,66 +111,85 @@ export default function HeroCarousel({ onNavigate }: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Content Column - Positioned at bottom left */}
           <motion.div 
-            className="lg:col-span-6 flex flex-col justify-end py-12 lg:py-0 lg:pb-16"
+            className="lg:col-span-10 flex flex-col justify-end py-12 lg:py-0 lg:pt-32 px-4 lg:px-8"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Main Title - 2 rows as requested */}
+            {/* Breadcrumb */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-4"
+            >
+              <nav className="flex items-center text-white/80 text-base font-medium">
+                <span>School</span>
+                <span className="mx-2">›</span>
+                <span className="text-white">LHBS Bien Hoa GalaxyKG</span>
+              </nav>
+            </motion.div>
+
+            {/* Main Title - Single row */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mb-8"
+              className="mb-6"
             >
-              <h1 className="text-white text-4xl md:text-5xl lg:text-6xl leading-tight font-semibold drop-shadow-lg">
-                <span className="block">Văn hóa Việt Nam</span>
-                <span className="block">Tầm nhìn quốc tế</span>
+              <h1 className="text-[#FFAE00] text-4xl md:text-5xl lg:text-6xl leading-tight font-semibold drop-shadow-lg">
+                <span className="block">Bien Hoa - A place for comprehensive</span>
+                <span className="block">development for children</span>
               </h1>
             </motion.div>
 
-            {/* CTA Button - Row 2 */}
+                      {/* Row 3 - Arrow down icon and tagline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
               className="mb-8"
+            > 
+              {/* Tagline */}
+              <p className="text-white text-base md:text-lg font-medium drop-shadow-lg">
+                Lac Hong Bilingual School is a leading bilingual school in Dong Nai, where every student is
+              </p>
+               <p className="text-white text-base md:text-lg font-medium drop-shadow-lg">
+                nurtured to develop intellectually, ethically, and globally competent in the digital era.
+              </p>
+            </motion.div>
+
+            {/* CTA Button - Row 2 */}
+            <div className="flex flex-col sm:flex-row sm:gap-4">
+           <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mb-4 sm:mb-0"
+            >
+              <button
+                onClick={() => onNavigate('/admissions')}
+                className="px-8 md:px-10 h-12 bg-none text-white border-2 border-white font-bold uppercase text-sm md:text-base tracking-wider 
+                 shadow-xl drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)] rounded-lg hover:bg-white hover:text-black transition-all"
+              >
+                DOWNLOAD PDF
+              </button>
+            </motion.div>
+             <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
               <button
                 onClick={() => onNavigate('/admissions')}
                 className="px-8 md:px-10 h-12 bg-[#FABA1E] text-black font-bold uppercase text-sm md:text-base tracking-wider 
                           hover:bg-[#e5a812] transition-all focus:outline-none focus:ring-2 focus:ring-[#FABA1E] focus:ring-offset-2 
-                          focus:ring-offset-transparent shadow-xl drop-shadow-lg !rounded-none"
-                style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))' }}
+                          focus:ring-offset-transparent shadow-xl drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)] rounded-lg"
               >
-                Discover More →
+                ENQUIRE NOW
               </button>
             </motion.div>
-
-            {/* Row 3 - Arrow down icon and tagline */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="flex items-center gap-4"
-            >
-              {/* Arrow down icon */}
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="text-white"
-              >
-                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </motion.div>
-              
-              {/* Tagline */}
-              <p className="text-white text-lg md:text-xl font-medium drop-shadow-lg">
-                #Bước đệm vững chắc để trở thành công dân toàn cầu
-              </p>
-            </motion.div>
-
+            </div>
           </motion.div>
         </div>
       </div>
