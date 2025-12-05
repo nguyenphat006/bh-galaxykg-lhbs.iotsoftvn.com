@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import tour360Image from '@/images/home-page/section-news/360.png';
+import tour360Image from '@/images/home-page/360-2.png';
 import { Link } from 'react-router';
 
 interface Testimonial {
