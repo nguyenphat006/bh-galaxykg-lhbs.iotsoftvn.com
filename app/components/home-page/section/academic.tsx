@@ -43,7 +43,9 @@ export default function AcademicSection({ onNavigate }: AcademicSectionProps) {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section className="py-24 md:py-32" ref={ref}>
+    <section 
+    id='academic-divisions'
+    className="py-24 md:py-32" ref={ref}>
       <div className="w-full max-w-screen-2xl mx-auto px-4 lg:px-8">
         {/* Title Section */}
         <motion.div

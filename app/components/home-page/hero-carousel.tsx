@@ -111,7 +111,7 @@ export default function HeroCarousel({ onNavigate }: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Content Column - Positioned at bottom left */}
           <motion.div 
-            className="lg:col-span-6 flex flex-col justify-end py-12 lg:py-0 lg:pb-16"
+            className="lg:col-span-10 flex flex-col justify-end py-12 lg:py-0 lg:pb-16"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -138,8 +138,8 @@ export default function HeroCarousel({ onNavigate }: HeroProps) {
               className="mb-8"
             >
               <h1 className="text-white text-4xl md:text-5xl lg:text-6xl leading-tight font-semibold drop-shadow-lg">
-                <span className="block">Văn hóa Việt Nam</span>
-                <span className="block">Tầm nhìn quốc tế</span>
+                <span className="block">Bien Hoa A place for comprehensive</span>
+                <span className="block">development for children</span>
               </h1>
             </motion.div>
 
@@ -222,7 +222,7 @@ export default function HeroCarousel({ onNavigate }: HeroProps) {
       </div> */}
 
       {/* Scroll Indicator */}
-      <ScrollIndicator targetSectionId="solid-education-level" />
+      <ScrollIndicator targetSectionId="academic-divisions" />
     </section>
   );
 }

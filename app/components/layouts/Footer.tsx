@@ -74,31 +74,32 @@ export default function Footer({ onNavigate }: { onNavigate: (path: string) => v
       />
       
       {/* Gradient Overlay - Dark from top-left, fading to reveal image */}
-    <div
+  <div
   className="absolute inset-0 -z-5"
   style={{
     background: `
       radial-gradient(
         ellipse at top left,
-        rgba(26, 83, 54, 1) 30%,
-        rgba(26, 83, 54, 0.95) 40%,
-        rgba(26, 83, 54, 0.75) 55%,
-        rgba(26, 83, 54, 0.50) 60%,
-        rgba(26, 83, 54, 0.30) 80%,
-        rgba(26, 83, 54, 0.15) 100%
+        rgba(0, 96, 47, 1) 30%,
+        rgba(0, 96, 47, 0.95) 40%,
+        rgba(0, 96, 47, 0.75) 55%,
+        rgba(0, 96, 47, 0.50) 60%,
+        rgba(0, 96, 47, 0.30) 80%,
+        rgba(0, 96, 47, 0.15) 100%
       ),
       radial-gradient(
         ellipse at top right,
-        rgba(26, 83, 54, 1) 10%,
-        rgba(26, 83, 54, 0.95) 20%,
-        rgba(26, 83, 54, 0.75) 45%,
-        rgba(26, 83, 54, 0.50) 60%,
-        rgba(26, 83, 54, 0.30) 80%,
-        rgba(26, 83, 54, 0.15) 100%
+        rgba(0, 96, 47, 1) 10%,
+        rgba(0, 96, 47, 0.95) 20%,
+        rgba(0, 96, 47, 0.75) 45%,
+        rgba(0, 96, 47, 0.50) 60%,
+        rgba(0, 96, 47, 0.30) 80%,
+        rgba(0, 96, 47, 0.15) 100%
       )
     `
   }}
 />
+
 
       
       {/* Action Buttons Row - Above Footer Content */}

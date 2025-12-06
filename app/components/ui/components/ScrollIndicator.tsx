@@ -5,7 +5,7 @@ interface ScrollIndicatorProps {
   targetSectionId?: string;
 }
 
-export function ScrollIndicator({ targetSectionId = 'solid-education-level' }: ScrollIndicatorProps) {
+export function ScrollIndicator({ targetSectionId = 'academic-divisions' }: ScrollIndicatorProps) {
   const [isVisible, setIsVisible] = useState(true);
   const { scrollYProgress } = useScroll();
   
@@ -15,7 +15,7 @@ export function ScrollIndicator({ targetSectionId = 'solid-education-level' }: S
       // Get the current scroll position
       const currentScrollY = window.scrollY;
       // Add offset to scroll a bit higher than the target element
-      const offset = 170; // Adjust this value to control how much higher to scroll
+      const offset = 220; // Adjust this value to control how much higher to scroll
       const targetScrollY = targetElement.offsetTop - offset;
       const distance = Math.abs(targetScrollY - currentScrollY);
       
