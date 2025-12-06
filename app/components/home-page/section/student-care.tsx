@@ -92,6 +92,7 @@ export default function StudentCareSection() {
               containScroll: false,
               startIndex: 1
             }}
+            // plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
             className="w-full"
           >
             <CarouselContent className="">
@@ -111,20 +112,21 @@ export default function StudentCareSection() {
                 }
 
                 return (
-                  <CarouselItem key={item.id} className="pl-2 basis-[85%] md:basis-[60%] lg:basis-[45%]">
+                  <CarouselItem key={item.id} className="pl-2 basis-[95%] md:basis-[80%] lg:basis-[65%]">
                     <div className="p-1">
                       <motion.div
-                        className={cn(
-                          "relative bg-white rounded-3xl shadow-lg overflow-hidden transition-all duration-500",
-                          isActive
-                            ? "scale-100 opacity-100 z-20"
-                            : "scale-85 opacity-40 blur-[1px] z-0",
-                          rotateClass
-                        )}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                      >
+                      className={cn(
+                        "relative rounded-3xl shadow-lg overflow-hidden transition-all duration-500",
+                        isActive
+                          ? "bg-white scale-100 opacity-100 z-20"
+                          : "bg-gray-100 scale-85 opacity-40 blur-[1px] z-0", // <-- nền xám nhạt
+                        rotateClass
+                      )}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                    >
+
                         {/* Card Content - Centered */}
                         <div className="flex flex-col items-center text-center p-8 pb-20">
                           {/* Icon */}
@@ -140,7 +142,7 @@ export default function StudentCareSection() {
                           </h3>
 
                           {/* Description */}
-                          <p className="text-[#212121] text-sm leading-relaxed">
+                          <p className="text-[#212121] text-sm leading-relaxed font-medium">
                             {item.description}
                           </p>
                         </div>
