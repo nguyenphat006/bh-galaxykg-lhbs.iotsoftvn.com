@@ -3,8 +3,6 @@ import { useRef } from 'react';
 import img01 from "@/images/home-page/section-academics/01.png"
 import img02 from "@/images/home-page/section-academics/02.png"
 import img03 from "@/images/home-page/section-academics/03.png"
-import cloudcard from '@/images/home-page/section-academics/card-cloud.png'
-import lhbscard from '@/images/home-page/section-academics/card-lhbs.png'
 
 const academicDivisions = [
   {
@@ -48,7 +46,7 @@ export default function AcademicSection({ onNavigate }: AcademicSectionProps) {
     <section 
     id='academic-divisions'
     className="py-24 md:py-32" ref={ref}>
-      <div className="w-full max-w-6xl mx-auto">
+      <div className="w-full max-w-screen-2xl mx-auto px-4 lg:px-8">
         {/* Title Section */}
         <motion.div
           className="text-center mb-16"
@@ -70,58 +68,54 @@ export default function AcademicSection({ onNavigate }: AcademicSectionProps) {
           {academicDivisions.map((division, index) => (
             <motion.div
               key={division.id}
-              className="relative group cursor-pointer bg-white rounded-3xl overflow-hidden shadow-lg"
+              className="relative group cursor-pointer"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               onClick={() => onNavigate(division.href)}
             >
-              {/* Top Half - Image Section */}
-              <div className="relative h-[250px] overflow-hidden">
+              <div className="relative h-[400px] lg:h-[450px] rounded-lg overflow-hidden">
                 {/* Background Image */}
                 <img
                   src={division.image}
                   alt={division.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 
-                {/* Cloud Card at bottom of image */}
-                <div className="absolute bottom-0 left-0 right-0 w-full">
-                  <img
-                    src={cloudcard}
-                    alt="Cloud decoration"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
-              </div>
-
-              {/* Bottom Half - Content Section */}
-              <div className="relative p-6 bg-white pb-20">
-                {/* Grade Range Badge */}
-                <div className="inline-block mb-3">
-                  <span className="text-[#FABA1E] text-sm font-bold uppercase tracking-wider">
-                    {division.gradeRange}
-                  </span>
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  {/* Grade Range Badge */}
+                  <div className="inline-block mb-3">
+                    <span className="text-[#FABA1E] text-sm font-bold uppercase tracking-wider">
+                      {division.gradeRange}
+                    </span>
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="text-2xl lg:text-3xl font-bold mb-3 leading-tight">
+                    {division.title}
+                  </h3>
+                  {/* Learn More Arrow (appears on hover) */}
+                  <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="flex items-center text-[#FABA1E] font-medium text-sm">
+                      <span>Learn More</span>
+                      <svg 
+                        className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
                 
-                {/* Title */}
-                <h3 className="text-xl lg:text-2xl font-bold mb-3 leading-tight text-[#1A5336]">
-                  {division.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-[#212121] text-sm leading-relaxed mb-4">
-                  {division.description}
-                </p>
-              </div>
-
-              {/* LHBS Card at bottom right corner - absolute to the card wrapper */}
-              <div className="absolute bottom-0 right-0 w-64 h-auto pointer-events-none">
-                <img
-                  src={lhbscard}
-                  alt="LHBS decoration"
-                  className="w-full h-auto object-contain"
-                />
+                {/* Hover Overlay for better interaction feedback */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               </div>
             </motion.div>
           ))}

@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import tour360Image from '@/images/home-page/360-2.png';
+import tour360Image from '@/images/home-page/section-news/360.png';
 import { Link } from 'react-router';
 
 interface Testimonial {
@@ -40,7 +40,7 @@ export function TestimonialQuoteSection({ onNavigate }: TestimonialQuoteSectionP
   return (
     <motion.section
       ref={ref}
-      className="bg-[#F5F5F5] py-14 overflow-hidden relative"
+      className="py-14 overflow-hidden relative"
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.8 }}
@@ -59,7 +59,7 @@ export function TestimonialQuoteSection({ onNavigate }: TestimonialQuoteSectionP
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index}>
-                  <div className="flex items-start gap-2 md:gap-4 lg:gap-8 p-6 px-32">
+                  <div className="flex items-start md:gap-2 lg:gap-4 p-6">
                     
                     {/* Quote Icon */}
                     <motion.div

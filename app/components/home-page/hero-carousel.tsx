@@ -74,7 +74,7 @@ export default function HeroCarousel({ onNavigate }: HeroProps) {
             <img
               src={image}
               alt="LHBS campus with students"
-              className="w-full h-full object-contain"
+              className="w-full h-full object-fit"
               style={{ filter: 'brightness(1)' }}
             />
           </motion.div>
@@ -93,11 +93,11 @@ export default function HeroCarousel({ onNavigate }: HeroProps) {
            }} /> */}
 
       {/* Bottom Background Image with higher z-index */}
-      <div className="absolute bottom-10 left-0 right-0 z-30 pointer-events-none">
+      <div className="absolute bottom-0 pointer-events-none">
         <img
           src={Bottombg}
           alt="Bottom decoration"
-          className="w-full h-auto object-contain"
+          className="w-full h-full"
         />
       </div>
 

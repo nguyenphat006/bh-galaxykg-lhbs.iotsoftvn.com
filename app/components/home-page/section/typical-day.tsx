@@ -89,7 +89,7 @@ export default function TypicalDaySection() {
         </div>
 
         {/* Carousel Section - Full Width */}
-        <div className="relative w-full">
+        <div className="relative w-full max-w-6xl mx-auto">
             <Carousel className="relative overflow-visible">
               <CarouselContent className="-ml-6 overflow-visible">
                 {dailyActivities.map((activity) => (
