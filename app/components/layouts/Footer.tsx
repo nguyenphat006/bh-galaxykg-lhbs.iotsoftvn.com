@@ -64,19 +64,52 @@ export default function Footer({ onNavigate }: { onNavigate: (path: string) => v
   ];
 
   return (
-    <footer className="footer text-[#fffae9] relative z-50">
+    <footer className="footer text-[#fffae9] relative z-50 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-10"
+        style={{
+          backgroundImage: `url(/images/base/Footer.jpg)`
+        }}
+      />
+      
+      {/* Gradient Overlay - Dark from top-left, fading to reveal image */}
+    <div
+  className="absolute inset-0 -z-5"
+  style={{
+    background: `
+      radial-gradient(
+        ellipse at top left,
+        rgba(26, 83, 54, 1) 30%,
+        rgba(26, 83, 54, 0.95) 40%,
+        rgba(26, 83, 54, 0.75) 55%,
+        rgba(26, 83, 54, 0.50) 60%,
+        rgba(26, 83, 54, 0.30) 80%,
+        rgba(26, 83, 54, 0.15) 100%
+      ),
+      radial-gradient(
+        ellipse at top right,
+        rgba(26, 83, 54, 1) 10%,
+        rgba(26, 83, 54, 0.95) 20%,
+        rgba(26, 83, 54, 0.75) 45%,
+        rgba(26, 83, 54, 0.50) 60%,
+        rgba(26, 83, 54, 0.30) 80%,
+        rgba(26, 83, 54, 0.15) 100%
+      )
+    `
+  }}
+/>
+
+      
       {/* Action Buttons Row - Above Footer Content */}
       <div className="max-w-[800px] mx-auto px-4 md:px-20 pt-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {/* Inquire Button */}
           <button
             onClick={() => onNavigate('/contact/inquire')}
-            className="rounded-none! flex flex-col items-center justify-center transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FABA1E] focus:ring-offset-2 focus:ring-offset-transparent"
-            style={{
-              background: 'linear-gradient(180deg, #1D5036 0%, #1C613E 100%)'
-            }}
+            className="flex flex-col items-center justify-center w-[160px] h-[160px] rounded-full transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FABA1E] focus:ring-offset-2 focus:ring-offset-transparent backdrop-blur-md btn-footer hover:bg-black/50"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none" className="mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none" className="mb-2">
               <mask id="mask0_2290_4770" style={{maskType:'alpha'}} maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
                 <rect width="36" height="36" fill="#D9D9D9"/>
               </mask>
@@ -90,12 +123,9 @@ export default function Footer({ onNavigate }: { onNavigate: (path: string) => v
           {/* Apply Button */}
           <button
             onClick={() => onNavigate('/admissions/apply')}
-            className="rounded-none! flex flex-col items-center justify-center transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FABA1E] focus:ring-offset-2 focus:ring-offset-transparent"
-            style={{
-              background: 'linear-gradient(180deg, #1D5036 0%, #1C613E 100%)'
-            }}
+            className="flex flex-col items-center justify-center w-[160px] h-[160px] rounded-full transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FABA1E] focus:ring-offset-2 focus:ring-offset-transparent backdrop-blur-md btn-footer hover:bg-black/50"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none" className="mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none" className="mb-2">
               <mask id="mask0_2290_4775" style={{maskType:'alpha'}} maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
                 <rect width="36" height="36" fill="#D9D9D9"/>
               </mask>
@@ -109,12 +139,9 @@ export default function Footer({ onNavigate }: { onNavigate: (path: string) => v
           {/* Visit Button */}
           <button
             onClick={() => onNavigate('/visit')}
-            className="rounded-none! flex flex-col items-center justify-center py-4 transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FABA1E] focus:ring-offset-2 focus:ring-offset-transparent"
-            style={{
-              background: 'linear-gradient(180deg, #1D5036 0%, #1C613E 100%)'
-            }}
+            className="flex flex-col items-center justify-center w-[160px] h-[160px] rounded-full transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FABA1E] focus:ring-offset-2 focus:ring-offset-transparent backdrop-blur-md btn-footer hover:bg-black/50"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none" className="mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none" className="mb-2">
               <mask id="mask0_2290_4780" style={{maskType:'alpha'}} maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
                 <rect width="36" height="36" fill="#D9D9D9"/>
               </mask>
@@ -128,7 +155,7 @@ export default function Footer({ onNavigate }: { onNavigate: (path: string) => v
       </div>
 
       {/* Footer Top - 4 Columns */}
-      <div className="max-w-[1440px] mx-auto px-4 md:px-20 py-24">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-20 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Column 1: Brand & Address */}
           <div className="lg:mr-8">
