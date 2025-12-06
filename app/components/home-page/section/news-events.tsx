@@ -75,7 +75,7 @@ export default function NewsEventsSection({ onNavigate }: { onNavigate: (path: s
       <div className="relative z-10">
         {/* Centered Title */}
         <motion.h2
-          className="text-4xl md:text-5xl lg:text-6xl text-[#1a5336] mb-16 text-center font-bold"
+          className="text-4xl md:text-5xl lg:text-5xl text-[#1a5336] mb-16 text-center font-bold"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}

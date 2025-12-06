@@ -12,6 +12,7 @@ import EducationLevel from './section/education-level'
 import LetsBeginCTA from './section/lets-begin'
 import TypicalDaySection from './section/typical-day'
 import AcademicSection from './section/academic'
+import StudentCareSection from './section/student-care'
 export { 
   VideoHero, 
   HeroCarousel, 
@@ -28,5 +29,6 @@ export {
   EducationLevel,
   LetsBeginCTA,
   TypicalDaySection,
-  AcademicSection
+  AcademicSection,
+  StudentCareSection
 }
